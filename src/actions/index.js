@@ -4,3 +4,10 @@ export function setEmployeeList(employeeList) {
         payload: employeeList
     }
 }
+
+export function addMovies(movieList) {
+    return {
+        type: "SET_MOVIE_LIST",
+        payload: movieList
+    }
+}

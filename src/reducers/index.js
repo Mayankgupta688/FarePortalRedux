@@ -5,5 +5,5 @@ import movies from "./moviesDetailsReducer";
 
 export const rootReducer = combineReducers({
     employees: employees,
-    mavies: movies
+    movies: movies
 })

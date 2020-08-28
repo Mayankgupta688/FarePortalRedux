@@ -25,10 +25,42 @@ class App extends React.Component {
     }
 }
 
-function mapStateToProps(state) {
+
+class MovieApp extends React.Component {
+
+    componentDidMount() {
+
+        this.props.addMovies([{
+            movieName: "Sirf Tum",
+            movieDuration: "2 Hours"
+        }, {
+            movieName: "Not Sirf Tum",
+            movieDuration: "2 Hours"
+        }])
+    }
+
+    render() {
+        return (
+            <>
+                {this.props.movies && (
+                    this.props.movies.map(movie => <h1>{movie.movieName}</h1>)
+                )}  
+            </>
+        )
+    }
+}
+
+function mapStateToPropsForMovies(state) {
+    return {
+        movies: state.movies
+    }
+}
+
+function mapStateToPropsForEmployees(state) {
     return {
         employees: state.employees
     }
 }
 
-export default connect(mapStateToProps, actions)(App)
+export var AppComponent = connect(mapStateToPropsForEmployees, actions)(App);
+export var MovieComponent = connect(mapStateToPropsForMovies, actions)(MovieApp);
